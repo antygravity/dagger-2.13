@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class BuildersModule {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = arrayOf(LobbyActivityModule::class))
     abstract fun bindMainActivity():  MainActivity
 }

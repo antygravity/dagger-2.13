@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import antygravity.pl.dagger210.R
 import antygravity.pl.dagger210.service.CommonHelloService
+import antygravity.pl.dagger210.service.LobbyHelloService
 import butterknife.BindView
 import butterknife.ButterKnife
 import dagger.android.AndroidInjection
@@ -15,8 +16,14 @@ class MainActivity : AppCompatActivity() {
     @BindView(R.id.text_hello)
     lateinit var  textHello: TextView
 
+    @BindView(R.id.text_hello_lobby)
+    lateinit var  textHelloLobby: TextView
+
     @Inject
     lateinit var helloService: CommonHelloService;
+
+    @Inject
+    lateinit var lobbyService: LobbyHelloService;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -25,5 +32,6 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
 
         textHello.setText(helloService.sayHello())
+        textHelloLobby.setText(lobbyService.sayHello())
     }
 }
