@@ -15,5 +15,6 @@ class AppModule {
     fun provideService() = CommonHelloService()
 
     @Provides
+    @Singleton
     fun provideContext(app: Application) = app.applicationContext
 }
